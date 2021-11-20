@@ -14,7 +14,7 @@ logging.basicConfig()
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.DEBUG)
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-V8_VERSION = "branch-heads/8.9"
+V8_VERSION = "branch-heads/9.1"
 
 
 def local_path(path="."):
@@ -61,7 +61,7 @@ def install_depot_tools():
 
 def prepare_workdir():
     directories = ["build", "build_overrides", "buildtools", "testing",
-                   "third_party", "tools"]
+                   "third_party", "tools", "gni"]
     with chdir(local_path("../py_mini_racer/extension")):
         for item in directories:
             if not os.path.exists(item):
@@ -134,6 +134,10 @@ def gen_makefiles(build_path, no_sysroot=False):
                 "use_ozone": "false",
                 "use_udev": "false",
                 "is_desktop_linux": "false",
+                
+                 "target_cpu": "\"arm64\"",
+                "v8_target_cpu": "\"arm64\"",
+                "cc_wrapper": "\"ccache\"",
 
                 "is_cfi": "false",
                 "is_debug": "false",
