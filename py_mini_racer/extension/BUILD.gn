@@ -15,7 +15,7 @@ static_library("py_mini_racer_static_lib") {
     "//v8:v8",
     "//v8:v8_libbase",
     "//v8:v8_libplatform",
-    "//v8:v8_libsampler",
+    # "//v8:v8_libsampler",
   ]
   configs += [ ":py_mini_racer_config" ]
 }
@@ -30,7 +30,7 @@ shared_library("py_mini_racer_shared_lib") {
     "//v8:v8",
     "//v8:v8_libbase",
     "//v8:v8_libplatform",
-    "//v8:v8_libsampler",
+    # "//v8:v8_libsampler",
   ]
   configs += [ ":py_mini_racer_config" ]
 }
